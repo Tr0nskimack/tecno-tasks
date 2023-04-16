@@ -6,7 +6,7 @@ import Lists from "../../components/Lists"
 
 const  tareaList = [
   {
-      text: " Tec que al integrarse, trabajára corrido sin descanso, actualmente de vacaciones vuelve el 25",
+      text: " Al integrarse, trabajára corrido sin descanso, actualmente de vacaciones vuelve el 25",
       nombre: "Jesus Hernandez",
       image: "https://pps.whatsapp.net/v/t61.24694-24/339617978_876233616815312_8100294183600090409_n.jpg?ccb=11-4&oh=01_AdQUVyAl7gJr9BuBLT7SD29Eb8socd4KhvJVmbKhUjSxHQ&oe=64491D25",
       id: 'tareaList-task-1'

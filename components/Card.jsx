@@ -28,10 +28,6 @@ const Card = ({text, nombre, id, image, setDragged, list}) => {
                 <p className='font-semibold'>{text}</p>
                 <RiEdit2Line className="text-2xl"/>
         </div>
-        <div className="flex flex-col">
-            <p className='font-semibold'>{id}</p>
-
-        </div>
     </div>
   )
 }
