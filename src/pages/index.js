@@ -1,124 +1,140 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import { useEffect, useState } from "react"
+import Card from "../../components/Card"
+import Header from "../../components/Header"
+import Lists from "../../components/Lists"
 
-const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+const  tareaList = [
+  {
+      text: " Asignar todas las cajas NAP de puerto la cruz, trabajára sabado y domingo sin descanso, actualmente de vacaciones vuelve el 25",
+      nombre: "Jesus Hernandez",
+      image: "https://pps.whatsapp.net/v/t61.24694-24/339617978_876233616815312_8100294183600090409_n.jpg?ccb=11-4&oh=01_AdQUVyAl7gJr9BuBLT7SD29Eb8socd4KhvJVmbKhUjSxHQ&oe=64491D25",
+      id: 'tareaList-task-1'
+      
+      
+    },
+    {
+      text: " Quedara asignado a solo lecheria",
+      nombre: "Frank Gil",
+      image: "https://pps.whatsapp.net/v/t61.24694-24/317718050_235086395512972_5590840811067221132_n.jpg?ccb=11-4&oh=01_AdQvvlpZTa5uFBoBpF5ZH9o35-jF2Ebo7rv2n12Ou4WpjQ&oe=64494459",
+      id: 'tareaList-task-2'
+      
+      
+    },
+    
+  ]
+  const  enProceso = [
+    {
+      text: " enProceso Implementar inicio de sesion",
+      nombre: "Angel Cedeño",
+      image: "https://pps.whatsapp.net/v/t61.24694-24/328714928_1273795563569329_6313409699528907431_n.jpg?ccb=11-4&oh=01_AdQvC08ncpHhyY5zzvBITK1tfVAZzREYD7TlD6788YfIOQ&oe=64492BA3",
+      id: 'enProceso-task-1'
+      
+      
+    },
+    {
+      text: " enProceso Implementar inicio de sesion",
+      nombre: "Jefferson Mariño",
+      image: "https://pps.whatsapp.net/v/t61.24694-24/300105315_586923056270307_3383213460242976027_n.jpg?ccb=11-4&oh=01_AdStBXARclCKk5Ee3K1m9R5UhC1OmWEuwWx3c6qj9hCgiw&oe=644945FC",
+      id: 'enProceso-task-2'
+      
+      
+    },
+    
+  ]
+  const  realizado = [
+    {
+      text: "realizado Implementar inicio de sesion",
+      image: "https://pps.whatsapp.net/v/t61.24694-24/328714928_1273795563569329_6313409699528907431_n.jpg?ccb=11-4&oh=01_AdQvC08ncpHhyY5zzvBITK1tfVAZzREYD7TlD6788YfIOQ&oe=64492BA3",
+      id: 'realizado-task-3'
+
+  
+  },
+
+]
+
+
+const index = () => {
+const [dragged, setDragged] = useState(null)
+
+  const [listOflist, setlistOfList] = useState({
+    tareaList,
+    enProceso,
+    realizado
+  })
+
+  /* useEffect(() =>{
+    setTimeout(() =>{
+      const listOflistClone = structuredClone(listOflist)
+      listOflistClone.enProceso.push({
+        text: "Que paso como estas",
+        id: crypto.randomUUID()
+      })
+    },5000)
+  }, []) */
+  
+  function handleDrop(event) {
+    event.preventDefault()
+    const list = event.currentTarget.dataset.list
+    const listOflistClone = structuredClone(listOflist)
+    const newList = listOflistClone[dragged.list].filter(item => item.id !== dragged.data.id)
+    listOflistClone[dragged.list] = newList
+    listOflistClone[list].push(dragged.data)
+    setlistOfList(listOflistClone)
+     /* console.log(event) */
+  }
+  
+  
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <>
+    <Header/>
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4 text-gray-500">Asignaciones</h1>
+      <main className="flex gap-4 justify-between flex-wrap ">
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Lists
+        nombre="Tareas" 
+        handleDrop = {handleDrop}
+        id="tareaList"
         >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          
+          {
+            listOflist.tareaList.map((item, index) => (
+              <Card setDragged={setDragged} {...item} key={item.id}/>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+            ))
+          }
+        </Lists>
+        <Lists
+        nombre="En Proceso" 
+        handleDrop = {handleDrop}
+        id="enProceso"
         >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+          
+          {
+            listOflist.enProceso.map((item, index) => (
+              <Card setDragged={setDragged} {...item} key={item.id}/>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
+            ))
+          }
+        </Lists>
+        <Lists
+        nombre="Terminadas" 
+        handleDrop = {handleDrop}
+        id="realizado"
         >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
+          
+          {
+            listOflist.realizado.map((item, index) => (
+              <Card setDragged={setDragged} {...item} key={item.id}/>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`${inter.className} mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p
-            className={`${inter.className} m-0 max-w-[30ch] text-sm opacity-50`}
-          >
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+            ))
+          }
+        </Lists>
+      </main>
+    </div>
+    </>
   )
 }
+
+export default index
