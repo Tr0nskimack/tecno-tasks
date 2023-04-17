@@ -6,7 +6,7 @@ import Lists from "../../components/Lists"
 
 const  tareaList = [
   {
-      text: "Al integrarse, trabajára corrido sin descanso, actualmente de vacaciones",
+      text: "Al integrarse, trabajára corrido sin descanso, actualmente de vacaciones retorna el 25/04",
       nombre: "Jesus Hernandez",
       image: "https://pps.whatsapp.net/v/t61.24694-24/339617978_876233616815312_8100294183600090409_n.jpg?ccb=11-4&oh=01_AdQUVyAl7gJr9BuBLT7SD29Eb8socd4KhvJVmbKhUjSxHQ&oe=64491D25",
       id: 'tareaList-task-1'
@@ -24,16 +24,9 @@ const  tareaList = [
     
   ]
   const  enProceso = [
+    
     {
-      text: " enProceso Implementar inicio de sesion",
-      nombre: "Angel Cedeño",
-      image: "https://pps.whatsapp.net/v/t61.24694-24/328714928_1273795563569329_6313409699528907431_n.jpg?ccb=11-4&oh=01_AdQvC08ncpHhyY5zzvBITK1tfVAZzREYD7TlD6788YfIOQ&oe=64492BA3",
-      id: 'enProceso-task-1'
-      
-      
-    },
-    {
-      text: " enProceso Implementar inicio de sesion",
+      text: "En tramites para cambiarlo de zona",
       nombre: "Jefferson Mariño",
       image: "https://pps.whatsapp.net/v/t61.24694-24/300105315_586923056270307_3383213460242976027_n.jpg?ccb=11-4&oh=01_AdStBXARclCKk5Ee3K1m9R5UhC1OmWEuwWx3c6qj9hCgiw&oe=644945FC",
       id: 'enProceso-task-2'
@@ -41,16 +34,17 @@ const  tareaList = [
       
     },
     
-  ]
-  const  realizado = [
     {
-      text: "realizado Implementar inicio de sesion",
+      text: "En espera de aprobacion para ponerlo como vigilante",
       nombre: "Angel Cedeño",
       image: "https://pps.whatsapp.net/v/t61.24694-24/328714928_1273795563569329_6313409699528907431_n.jpg?ccb=11-4&oh=01_AdQvC08ncpHhyY5zzvBITK1tfVAZzREYD7TlD6788YfIOQ&oe=64492BA3",
       id: 'realizado-task-3'
-
   
-  },
+  
+  }
+
+  ]
+  const  realizado = [
 
 ]
 
@@ -91,7 +85,7 @@ const [dragged, setDragged] = useState(null)
     <Header/>
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 text-gray-500">Asignaciones</h1>
-      <main className="grid lg:grid-cols-3 gap-4 grid-col-1  bg-red-500">
+      <main className="grid lg:grid-cols-3 gap-4 grid-col-1  ">
 
         <Lists
         nombre="Tareas" 
