@@ -6,7 +6,7 @@ import Lists from "../../components/Lists"
 
 const  tareaList = [
   {
-      text: " Al integrarse, trabajára corrido sin descanso, actualmente de vacaciones vuelve el 25",
+      text: "Al integrarse, trabajára corrido sin descanso, actualmente de vacaciones",
       nombre: "Jesus Hernandez",
       image: "https://pps.whatsapp.net/v/t61.24694-24/339617978_876233616815312_8100294183600090409_n.jpg?ccb=11-4&oh=01_AdQUVyAl7gJr9BuBLT7SD29Eb8socd4KhvJVmbKhUjSxHQ&oe=64491D25",
       id: 'tareaList-task-1'
@@ -14,7 +14,7 @@ const  tareaList = [
       
     },
     {
-      text: " Quedara asignado a solo lecheria",
+      text: " Quedara asignado a solo lecheria ",
       nombre: "Frank Gil",
       image: "https://pps.whatsapp.net/v/t61.24694-24/317718050_235086395512972_5590840811067221132_n.jpg?ccb=11-4&oh=01_AdQvvlpZTa5uFBoBpF5ZH9o35-jF2Ebo7rv2n12Ou4WpjQ&oe=64494459",
       id: 'tareaList-task-2'
@@ -45,6 +45,7 @@ const  tareaList = [
   const  realizado = [
     {
       text: "realizado Implementar inicio de sesion",
+      nombre: "Angel Cedeño",
       image: "https://pps.whatsapp.net/v/t61.24694-24/328714928_1273795563569329_6313409699528907431_n.jpg?ccb=11-4&oh=01_AdQvC08ncpHhyY5zzvBITK1tfVAZzREYD7TlD6788YfIOQ&oe=64492BA3",
       id: 'realizado-task-3'
 
@@ -90,7 +91,7 @@ const [dragged, setDragged] = useState(null)
     <Header/>
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 text-gray-500">Asignaciones</h1>
-      <main className="flex gap-4 justify-between flex-wrap ">
+      <main className="flex gap-4 justify-between ">
 
         <Lists
         nombre="Tareas" 

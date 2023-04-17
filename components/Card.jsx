@@ -20,12 +20,12 @@ const Card = ({text, nombre, id, image, setDragged, list}) => {
         <div className="flex justify-between">
             <div className='flex justify-center items-center gap-2'>
                 <img className='w-12 h-12 rounded-full' src={image} alt="" />
-                <p className='font-semibold'>{nombre}</p>
+                <p className='font-semibold text-lg'>{nombre}</p>
             </div>
             <RiMessage3Line className="text-2xl"/>
         </div>
         <div className="flex justify-between ">
-                <p className='font-semibold'>{text}</p>
+                <p className='px-3  w-full'>{text}</p>
                 <RiEdit2Line className="text-2xl"/>
         </div>
     </div>
