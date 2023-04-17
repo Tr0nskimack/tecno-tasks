@@ -91,7 +91,7 @@ const [dragged, setDragged] = useState(null)
     <Header/>
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 text-gray-500">Asignaciones</h1>
-      <main className="flex gap-4 justify-between ">
+      <main className="grid lg:grid-cols-3 gap-4 grid-col-1  bg-red-500">
 
         <Lists
         nombre="Tareas" 
